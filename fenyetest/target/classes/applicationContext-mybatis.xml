@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+  <context:property-placeholder location="classpath:config/jdbc.properties"/>
+  <bean id="poolDataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource">
+    <property name="jdbcUrl" value = "${jdbc.jdbcUrl}"/>
+    <property name="driverClass" value="${jdbc.driverClass}"/>
+    <property name="user" value="${jdbc.user}"/>
+    <property name="password" value="${jdbc.password}"/>
+  </bean>
+  <!--start  ======================== =  配置和mybatis的整合  下面的可以帮我们创建sqlSessionFactory=========================== -->
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!--指定mybatis全局配置文件位置-->
+    <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    <property name="dataSource" ref="poolDataSource"/>
+    <!--指定mapper文件的位置-->
+    <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+
+  </bean>
+
+  <!--配置扫描器，将mybatis接口实现加入到ioc容器中-->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <!--掃描所有dao接口的实现，加入到ioc容器中-->
+    <property name="basePackage" value="cn.com.chnsys.dao"/>
+  </bean>
+  <!--mybatis      ===========================end   -->
+</beans>

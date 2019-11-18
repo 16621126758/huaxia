@@ -1,0 +1,4 @@
+com\chnsys\cn\microservicesimpleprovideruser\MicroserviceSimpleProviderUserApplication.class
+com\chnsys\cn\microservicesimpleprovideruser\pojo\User.class
+com\chnsys\cn\microservicesimpleprovideruser\Controller\UserController.class
+com\chnsys\cn\microservicesimpleprovideruser\Repository\UserRepository.class

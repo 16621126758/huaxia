@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--  配置 bean
+    calss：全类名，通过反射的方式在IOC容器中创建bean，所以要求bean必须有无参的构造器
+    id:标识容器中的bean，id唯一
+-->
+  <bean id="student" class="cn.com.chnsys.pojo.Student">
+    <property name="id" value="1"/>
+    <property name="name" value="1"/>
+  </bean>
+
+  <bean id="student2" class="cn.com.chnsys.pojo.Student">
+    <property name="id" value="1"/>
+    <property name="name" value="1"/>
+    
+  </bean>
+
+<!--  通过构造方法来配置bean的 属性-->
+
+  <bean id="car3" class="cn.com.chnsys.pojo.Cat">
+    <constructor-arg index="0" value="Audi"/>
+    <constructor-arg index="1" value="Shanghai"/>
+
+    <constructor-arg  type="double" value="10000000"/>
+  </bean>
+
+  <bean id="car2" class="cn.com.chnsys.pojo.Cat">
+    <constructor-arg  index="0" value="baoba"/>
+    <constructor-arg index="1" value="Shanghai"/>
+
+    <constructor-arg  value="300" type="int"/>
+  </bean>
+
+  <bean id="persion" class="cn.com.chnsys.pojo.Persion">
+    <property name="id" value="1"></property>
+    <property name="name" value="Tom"></property>
+<!--    <property name="cat" ref="car2"></property>-->
+    <property name="cat">
+      <null/>
+    </property>
+  </bean>
+
+<!--  <bean id="persion1" class="cn.com.chnsys.pojo.Persion">-->
+<!--    <constructor-arg index="0" value="1"/>-->
+<!--    <constructor-arg index="1" value="1"/>-->
+<!--    <constructor-arg index="2" ref="car2"/>-->
+<!--&lt;!&ndash;    为级联属性赋值&ndash;&gt;-->
+<!--    <property name="cat.price" value="100000000"/>-->
+<!--  </bean>-->
+
+
+<!--  测试为对集合进行注入-->
+  <bean id="persion1" class="cn.com.chnsys.pojo.Persion">
+    <property name="id" value="1"></property>
+    <property name="name" value="Tom"></property>
+    <!--    <property name="cat" ref="car2"></property>-->
+    <property name="cat">
+      <list>
+        <ref  bean="car2"/>
+        <ref bean="car3"></ref>
+      </list>
+    </property>
+  </bean>
+
+  <bean id = "persion2" class="cn.com.chnsys.pojo.Persion2">
+    <property name="name" value="Rose"></property>
+    <property name="id" value="11"></property>
+  <property name="cars">
+    <map>
+      <entry key="AA" value-ref="car3"></entry>
+      <entry key="BB" value-ref="car2"></entry>
+    </map>
+  </property>
+  </bean>
+
+  <bean id="address" class="cn.com.chnsys.autowired.Address">
+    <property name="city" value="heilongjiang"/>
+  </bean>
+
+  <bean id="car" class="cn.com.chnsys.autowired.Car">
+    <property name="brand" value="baoba"/>
+    <property name="price" value="1000000"/>
+  </bean>
+
+  <bean id = "persion7" class="cn.com.chnsys.autowired.Persion" autowire="byName">
+<!--    <property name="name" value="Tom"/>-->
+<!--    <property name="address" ref="address"/>-->
+<!--    <property name="car" ref="carr"/>-->
+  </bean>
+
+</beans>

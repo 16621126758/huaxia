@@ -1,0 +1,4 @@
+com\chnsys\cn\microservicesimpleconsumermovie\Controller\MovieController.class
+com\chnsys\cn\microservicesimpleconsumermovie\config\RestemplateConfig.class
+com\chnsys\cn\microservicesimpleconsumermovie\MicroserviceSimpleConsumerMovieApplication.class
+com\chnsys\cn\microservicesimpleconsumermovie\pojo\User.class

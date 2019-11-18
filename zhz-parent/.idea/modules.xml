@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zhz-dao/zhz-dao.iml" filepath="$PROJECT_DIR$/zhz-dao/zhz-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhz-entry/zhz-entry.iml" filepath="$PROJECT_DIR$/zhz-entry/zhz-entry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhz-parent.iml" filepath="$PROJECT_DIR$/zhz-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhz-service/zhz-service.iml" filepath="$PROJECT_DIR$/zhz-service/zhz-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhz-web/zhz-web.iml" filepath="$PROJECT_DIR$/zhz-web/zhz-web.iml" />
+    </modules>
+  </component>
+</project>
